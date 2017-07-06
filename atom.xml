@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Collections</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-07-06T09:37:02.698Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>youkor</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub建立博客</title>
+    <link href="http://yoursite.com/2017/07/06/first-blog/"/>
+    <id>http://yoursite.com/2017/07/06/first-blog/</id>
+    <published>2017-07-06T02:00:00.000Z</published>
+    <updated>2017-07-06T09:37:02.698Z</updated>
+    
+    <content type="html"><![CDATA[<p>提示：需要<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a>、<a href="https://git-scm.com/" target="_blank" rel="external">git</a>环境支持</p>
+<h1 id="步骤1-安装Hexo引擎"><a href="#步骤1-安装Hexo引擎" class="headerlink" title="步骤1 安装Hexo引擎"></a>步骤1 安装Hexo引擎</h1><p>参考 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a></p>
+<p>全局安装hexo脚手架:<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
+<p>然后就可以用hexo命令了，初始化项目<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure></p>
+<p>运行验证，默认地址 localhost:4000<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span></div></pre></td></tr></table></figure></p>
+<p>此时展示的是默认landscape主题，换个其他的吧！</p>
+<h1 id="步骤2-下载next主题"><a href="#步骤2-下载next主题" class="headerlink" title="步骤2 下载next主题"></a>步骤2 下载next主题</h1><p>参考 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">http://theme-next.iissnan.com/getting-started.html</a></p>
+<p>建议使用git clone命令<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p>或者下载主题包解压到项目的<em>themes</em>文件夹下，修改解压后文件夹名为next</p>
+<p>在根目录找到 <em>_config.yml</em> 配置文件，修改其中 </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">theme:</span> <span class="string">next</span></div></pre></td></tr></table></figure>
+<p>这里与上述文件夹名一致即可。</p>
+<p>参考官网文档进行主题修改和配置即可，随时可运行验证。</p>
+<h1 id="步骤3-创建页面仓库"><a href="#步骤3-创建页面仓库" class="headerlink" title="步骤3 创建页面仓库"></a>步骤3 创建页面仓库</h1><p>参考 <a href="https://pages.github.com/" target="_blank" rel="external">https://pages.github.com/</a> </p>
+<p>在你的GitHub上创建新库，库名最好是 <em>username</em>.github.io，此处username为你的用户名。好像因为这个是GitHub提供的个人站点根目录的名称。<br>当然你也可以搞个例如名为blog的库，在设置中启用主分支页面，之后就是username.github.io/blog进入博客主页，但是转跳页面会有设置上的问题吧，推荐用最前边那个名称。</p>
+<h1 id="步骤4-自动部署到GitHub"><a href="#步骤4-自动部署到GitHub" class="headerlink" title="步骤4 自动部署到GitHub"></a>步骤4 自动部署到GitHub</h1><p>参考 <a href="https://hexo.io/zh-cn/docs/deployment.html#Git" target="_blank" rel="external">https://hexo.io/zh-cn/docs/deployment.html#Git</a></p>
+<p>安装 <a href="https://github.com/hexojs/hexo-deployer-git/" title="hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>修改 <em>_config.yml</em>配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">[branch]</span></div><div class="line"><span class="attr">  message:</span> <span class="string">[message]</span></div></pre></td></tr></table></figure>
+<h1 id="步骤5-开始创作吧"><a href="#步骤5-开始创作吧" class="headerlink" title="步骤5 开始创作吧"></a>步骤5 开始创作吧</h1><p>参考 <a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/writing.html</a></p>
+<p>创建空post模板的md文件<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="built_in">title</span></div></pre></td></tr></table></figure></p>
+<p>运行验证查看效果，最后一键部署<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;提示：需要&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;node.js&lt;/a&gt;、&lt;a href=&quot;https://git-scm.com/&quot; target=&quot;_blank&quot; rel=&quot;exte
+    
+    </summary>
+    
+      <category term="教程" scheme="http://yoursite.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+</feed>
